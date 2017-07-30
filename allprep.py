@@ -197,13 +197,3 @@ acc_log = round(logreg.score(X_train, Y_train) * 100, 2)
 acc_log
 
 
-#coeff see which feature had teh highest correlation, as we saw above, it is Title
-
-coeff_df = pd.DataFrame(train_df.columns.delete(0))
-coeff_df.columns = ['Feature']
-coeff_df["Correlation"] = pd.Series(logreg.coef_[0])
-
-#It looks like that Age*Class and Class didn't have a postive correlation
-coeff_df.sort_values(by='Correlation', ascending=False)
-
-
